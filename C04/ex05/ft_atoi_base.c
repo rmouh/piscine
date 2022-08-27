@@ -23,12 +23,12 @@ int	countlen(char *c)
 	return (i);
 }
 
-int power(int n, int ex)
+int	power(int n, int ex)
 {
-    if (ex == 0)
-        return (1);
-    else
-        return (n * power(n, ex - 1));
+	if (ex == 0)
+		return (1);
+	else
+		return (n * power(n, ex - 1));
 }
 
 int	check(char *base)
@@ -56,51 +56,51 @@ int	check(char *base)
 	}
 	return (1);
 }
-int findindexe(char c, char *baze)
-{
-    int i;
-    int basesize;
 
-    basesize = countlen(baze);
-    i = 0;
-    while (i < basesize)
-    {
-        if (baze[i] == c)
-            return (i);
-        i++;
-    }
+int	findindexe(char c, char *baze)
+{
+	int	i;
+	int	basesize;
+
+	basesize = countlen(baze);
+	i = 0;
+	while (i < basesize)
+	{
+		if (baze[i] == c)
+			return (i);
+		i++;
+	}
 }
 
 int	t_atoi_base(char *str, char *base)
 {
-    int basesize;
-    int strsize;
+	int	basesize;
+	int	strsize;
 	int	signe;
 	int	result;
-    int j;
+	int	j;
 
-    result = 0;
-    j = 0;
-    if (!check (base))
-        return (0);
-    basesize = countlen(base);
-    strsize = countlen(str) - 1;
-    if (str[0] == '-')
-        signe = -1;    
+	result = 0;
+	j = 0;
+	if (!check (base))
+		return (0);
+	basesize = countlen(base);
+	strsize = countlen(str) - 1;
+	if (str[0] == '-')
+		signe = -1;
 	while (str[j])
 	{
-		result = result + (findindexe(str[j], base) * power (basesize, strsize - j));
-        j++;
+		result += (findindexe(str[j], base) * power (basesize, strsize - j));
+		j++;
 	}
 	if (signe == -1)
 	result = result * (-1);
 	return (result);
 }
+
 int main(void)
 {
     printf("le int %d",t_atoi_base("6e", "0123456789abcdef"));
     //printf("le int %d",power(16, 0));
     //printf("le int %d",power(16, 1));
-
-
 }

@@ -14,7 +14,7 @@
 
 int	ft_sqrt(int nb)
 {
-	int	sqrt;
+	long	sqrt;
 
 	sqrt = 1;
 	if (nb <= 0)
@@ -25,25 +25,37 @@ int	ft_sqrt(int nb)
 			return (sqrt);
 		sqrt++;
 	}
-	return (0);
+	return (sqrt);
 }
 
 int	ft_is_prime(int nb)
 {
-	int	sqrt;
-	int	i;
+	long	b;
+	long	i;
 
 	i = 2;
+	b = (long int)nb;
+	if (nb == 2)
+		return (1);
+	if (nb == 2147483647)
+		return (2147483647);
 	if (nb <= 1 || nb % 2 == 0)
 		return (0);
-	else if (nb == 2 || nb == 2147483647)
-		return (1);
-	sqrt = ft_sqrt(nb);
-	while (i < sqrt && i < 46340)
+	i = 3;
+	while (i * i <= b)
 	{
 		if (nb % i == 0)
 			return (0);
-		i++;
+		i += 2;
 	}
 	return (1);
 }
+/*int main(void)
+{
+	// printf("le sqrt :%d\n", ft_sqrt(2147395600));
+	// printf("le prime :%d", ft_is_prime(2147483647));
+	printf("le prime :%d", ft_is_prime(1));
+	printf("le prime :%d", ft_is_prime(2));
+	printf("le prime :%d", ft_is_prime(7853));
+	printf("le prime :%d", ft_is_prime(22091));
+}*/

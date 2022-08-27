@@ -16,27 +16,9 @@ int	ft_fibonacci(int index)
 {
 	if (index < 0)
 		return (-1);
-	if (index > 46)
+	if (index == 0)
 		return (0);
-	if (index == 46)
-		return (1836311903);
-	else
-	{
-		if (index == 0)
-			return (0);
-		if (index == 1 || index == 2)
-			return (1);
-		return (ft_fibonacci (index - 1) + ft_fibonacci (index - 2));
-	}
+	if (index == 1)
+		return (1);
+	return (ft_fibonacci (index - 2) + ft_fibonacci (index - 1));
 }
-/*
-int	main(void)
-{
-	printf("%d\n", ft_fibonacci(5));
-	printf("%d\n", ft_fibonacci(0));
-	printf("%d\n", ft_fibonacci(1));
-	printf("%d\n", ft_fibonacci(46));
-	printf("%d\n", ft_fibonacci(-2));
-	return (0);
-}
-*/

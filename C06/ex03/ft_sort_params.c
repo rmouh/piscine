@@ -33,7 +33,6 @@ void	print(char **c, int argc)
 		write (1, "\n", 1);
 		i++;
 	}
-	write(1, "\n", 1);
 }
 
 int	ifswap(char *s1, char *s2)
@@ -70,10 +69,9 @@ void	sort(int argc, char *input[])
 	}
 	print (input, argc);
 }
-/*
-int    main (int argc, char *argv[])
+
+int	main(int argc, char *argv[])
 {
-	//char *c[20] = {"a.out","ok","wesh","magl","abc","bien","ou","quoi","la,bus"};
 	sort(argc, argv);
 	return (0);
-}*/
+}

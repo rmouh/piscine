@@ -66,10 +66,10 @@ void	ft_putnbr_base(int nbr, char *base)
 		ft_putnbr_base(temp / size, base);
 	write(1, &base[temp % size], 1);
 }
-/*int		main(void)
+int		main(void)
 {
 	write(1, "42:", 3);
-	ft_putnbr_base(2147483647, "0123456789");
+	ft_putnbr_base(110, "0123456789");
 	write(1, "\n2a:", 4);
 	ft_putnbr_base(42, "0123456789abcdef");
 	write(1, "\n-2a:", 5);
@@ -84,4 +84,3 @@ void	ft_putnbr_base(int nbr, char *base)
 	ft_putnbr_base(42, "\t0123456789abcdef");
 
 }
-*/
