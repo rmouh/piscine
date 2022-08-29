@@ -69,9 +69,8 @@ int	findindexe(char c, char *baze)
 			return (i);
 		i++;
 	}
-    return(0) ;
+	return (0);
 }
-
 
 int	t_atoi_base(char *str, char *base)
 {

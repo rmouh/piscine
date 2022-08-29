@@ -10,23 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-int ft_ultimate_range(int **range, int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
-    int	size;
+	int	size;
 	int	i;
 
 	if (min >= max)
-    {
-        range = malloc (sizeof(int*));
-        range[0] = 0;
-        return (0);
-    }
+	{
+		range = malloc(sizeof(int *));
+		range[0] = 0;
+		return (0);
+	}
 	i = 0;
 	size = max - min;
-	range = malloc (size * sizeof(int*));
-    if (!range)
-        return (-1);
+	range = malloc(size * sizeof(int *));
+	if (!range)
+		return (-1);
 	while (min < max)
 	{
 		*range[i] = min;

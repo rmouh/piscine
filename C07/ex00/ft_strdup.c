@@ -44,7 +44,7 @@ char	*ft_strdup(char *src)
 	c[size] = 0;
 	return (c);
 }
-
+/*
 int main (int argc, char *argv[])
 {
 	if (argc == 2)
@@ -54,3 +54,4 @@ int main (int argc, char *argv[])
 	}
 
 }
+*/

@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdio.h>
+//#include <stdio.h>
 #include<unistd.h>
 #include <stdlib.h>
+
 int	countlen(char *c);
 int	t_atoi_base(char *str, char *base);
 int	check(char *base);
-
 
 char	*ft_strcat(char *dest, char src)
 {
@@ -29,37 +28,36 @@ char	*ft_strcat(char *dest, char src)
 	return (dest);
 }
 
-int	ft_nblen (int nb, int size)
+int	ft_nblen(int nb, int size)
 {
-	if (nb == 0)
-		return (1);	
 	int	i;
 
 	i = 0;
+	if (nb == 0)
+		return (1);
 	while (nb != 0)
 	{
 		nb /= size;
 		i++;
-
 	}
 	return (i);
 }
 
 char	*ft_putnbr_base(int nbr, char *base)
 {
-	int	size;
-	int i;
-	int	idx;
-	char	*c;
-	unsigned int nb;
+	int				size;
+	int				i;
+	int				idx;
+	char			*c;
+	unsigned int	nb;
 
 	nb = -(nbr < 0) * nbr + (nbr > 0) * nbr;
 	idx = (nbr < 0);
 	size = countlen(base);
 	i = ft_nblen(nbr, size) + (nbr < 0);
 	c = malloc(sizeof(char) * (i + 1));
-		if(!c)
-			return (0);
+	if (!c)
+		return (0);
 	c[i] = 0;
 	if (nbr < 0)
 		c[0] = '-';
@@ -72,17 +70,19 @@ char	*ft_putnbr_base(int nbr, char *base)
 	}
 	return (c);
 }
-char    *ft_convert_base(char *nbr, char *base_from, char *base_to)
+
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-    if(check(base_from) && check(base_to)){
-        printf("%s\n", "le truc ");
-        return (ft_putnbr_base(t_atoi_base(nbr, base_from), base_to));
-    }
-    else
-        return (0);
+	if (check(base_from) && check(base_to))
+	{
+		return (ft_putnbr_base(t_atoi_base(nbr, base_from), base_to));
+	}
+	else
+		return (0);
 }
-int main(int argc, char **argv)
-{
-	(void)argc;
-    printf("la conversion %s",ft_convert_base(argv[1],argv[2],argv[3]));
-}
+
+// int main (int argc, char **argv)
+// {
+// 	(void) argc;
+// 	printf ("la conversion %s",ft_convert_base(argv[1], argv[2], argv[3]));
+// }
