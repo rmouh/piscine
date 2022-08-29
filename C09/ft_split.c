@@ -26,7 +26,6 @@ int is_sep(char c, char *sep)
 char **ft_split(char *str, char *charset)
 {
     int i;
-    int nb;
     int sep_counter;
     int word_counter;
     char    **dest;
@@ -64,25 +63,29 @@ char **ft_split(char *str, char *charset)
         dest[j] = malloc (sizeof(char) * (sep_counter ));//sans +1
         j++;
         word_counter = 0;
-        i = 0;
-        j = 0;
-        nb = 0;
-        while (j < sep_counter)
-            while (!(is_sep(str[i], charset)))
-            {
-                dest[j][i] = str[i];//puting in th table
-                i++;
-            }
-            j++;
-            while (is_sep(str[i], charset))
-                i++;
     }
+    i = 0;
+    j = 0;
+    while (j < sep_counter)
+    {
+        while (!(is_sep(str[i], charset)))
+        {
+            dest[j][i] = str[i];//puting in th table
+            i++;
+        }
+        j++;
+        while (is_sep(str[i], charset))
+            i++;
+    }
+    return (dest);
 
 
 
 }
 int main(int argc, char *argv[])
 {
+    char **dest;
     (void)argc;
-    printf("le sep :%d\n", is_sep(argv[1][0], argv[2]));
+    dest = ft_split(argv[1], argv[2]);
+    printf("%s", dest[0]);
 }
